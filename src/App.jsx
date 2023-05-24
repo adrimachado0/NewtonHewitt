@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+
+import Home from './components/Pages/Home/Home'
+
+import OurCompanies from './components/Pages/OurCompanies/OurCompanies'
+import PageCompany from './components/Pages/OurCompanies/Companies/pageCompany/pageCompany'
+import OurTeam from './components/Pages/OurTeam/OurTeam'
+import OurFounders from './components/Pages/OurFounders/OurFounders'
+import Climb from './components/Pages/Climb/Climb'
+
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+
+import Vector from './Vector.png'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='relativo'>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/ourcompanies" element={<OurCompanies />}></Route>
+        <Route path="/page-company/:company" element={<PageCompany/>}></Route>
+        <Route path="/ourfounders" element={<OurFounders />} > </Route>
+        <Route path="/ourteam" element={<OurTeam />} > </Route>
+        <Route path="/climb" element={<Climb />}></Route>
+      </Routes>
+      {/* <img className='lampara' src={Vector}/> */}
+    </div>
   )
 }
 
